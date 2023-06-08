@@ -1,0 +1,254 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav{
+    margin: 4em;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    gap: 4.1em;
+    margin: 0;
+}
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    position: relative;
+}
+nav ul li a.active:before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 1px;
+    border-bottom:2px solid black;
+    bottom:-5px;
+}
+nav ul li a:before {
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 1px;
+    border-bottom:2px solid black;
+    bottom:-5px;
+    transition: width .3s;
+}
+main{
+    display: flex;
+    gap: 8em;
+    margin-top: 4em;
+}
+.left-colum{
+    width: 45%;
+}
+.right-colum{
+    flex-grow: 1;
+}
+h1{
+    font-size: 5em;
+    font-weight:normal;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+.sup-head{
+    font-size: 1.8em;
+}
+.cta-btns{
+    display: flex;
+    gap: 2em;
+}
+.primary-cta{
+    background-color: #F1E4CB;
+    text-decoration: none;
+    padding: 1em 2em;
+    border-radius: 1.9em;
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: block;
+}
+.secondry-cta{
+    font-size: 1.5em;
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 1em 0;
+    line-height: 0;
+}
+.secondry-cta svg{
+    width: 20px;
+    transition: transform .3s;
+}
+.secondry-cta, span svg{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+  
+}
+.news{
+    display: flex;
+    gap: 3em;
+    padding: 4em;
+    margin-top: 3em;
+    border: 1px solid black;
+    border-radius: .8em;
+    position: relative;
+}
+.news::before{
+    position: absolute;
+    content: "";
+    background: url(/Images/svg.svg);
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    left: -20px;
+    z-index:2;
+}
+.employes{
+    font-size: 3.3em;
+    margin: 0;
+    font-weight: 200px;
+    line-height: 100%;
+}
+.details{
+    font-size: 1.4em;
+    margin: 0;
+}
+
+/* Right Column Gallery */
+
+.right-colum{
+    display: grid;
+    gap: 2.3em;
+    grid-template-columns: repeat(2,auto);
+    grid-template-areas:
+    "left right"
+   " left bottom";
+}
+.card{
+    border: 1px solid lightgray;
+    border-radius: .8em;
+    padding: 1.1em;
+    display: flex;
+    align-items: end;
+    background-size: 150%;
+    transition: background-size 800ms;
+}
+.card1{
+    grid-area: left;
+    background: url(/Images/shoe.webp);
+    background-size:cover;
+    position: relative;
+}
+.card1::before{
+    position: absolute;
+    content: "";
+    background: url(/Images/tag.svg) no-repeat;
+    width: 100%;
+    height: 100%;
+    top: -20px;
+    left: -30px;
+    pointer-events: none;
+}
+.card2{
+    background: url(/Images/blanket\ \(1\).jpg);
+    background-size:cover;
+    background-position: center;
+}
+.card3{
+    background: url(/Images/blanket\ \(2\).jpg);
+    background-size:cover;
+    background-position: center;
+}
+.card-details{
+    background-color: white;
+    padding: .6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: .9em;
+    margin-bottom: 0px;
+    transition: transform 800ms;
+}
+.card-details a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+.card-details p{
+    font-size: 1.4em;
+    margin: 0;
+}
+.product-price{
+    font-size: 1.8em;
+    font-weight: bold;
+} 
+
+/* microinteractions */
+nav ul li a:hover::before{
+  width: 35%;
+}
+.primary-cta:hover{
+    background-color: #e9d2a7;
+}
+.secondry-cta:hover svg{
+    transform: translateX(10px);
+}
+.secondry-cta:hover{
+    text-decoration: underline;
+}
+.card:hover {
+    background-size: 160%;
+}
+.card:hover .card-details{
+    transform: translateY(-20px);
+}
+
+/* Intro Animation */
+
+.overlay{
+    position: absolute;
+    z-index: 999;
+    background: white;
+    width: 100%;
+    height: 100%;
+    animation: reveal 1s ease-in forwards;
+    transform-origin: bottom;
+}
+
+@keyframes reveal{
+    from{
+        transform: scaleY(1);
+    }
+    to{
+        transform: scaleY(0);
+    }
+}
+
+main{
+    animation: growIn 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    transform: scale(.4);
+}
+
+@keyframes growIn{
+    to{
+        transform: scale(1);
+    }
+}
